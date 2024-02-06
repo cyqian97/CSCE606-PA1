@@ -3,38 +3,35 @@
 # Part 1
 
 def sum(arr)
-  return arr.inject(0, :+)
+  arr.inject(0, :+)
 end
 
 def max_2_sum(arr)
-  if arr.length == 0
-    return 0
+  if arr.empty?
+    0
   elsif arr.length == 1
-    return arr[0]
-  else 
+    arr[0]
+  else
     arr_sorted = arr.sort.reverse
-    return arr_sorted[0]+arr_sorted[1]
-  end 
+    arr_sorted[0] + arr_sorted[1]
+  end
 end
 
 def sum_to_n?(arr, number)
-  if arr.length < 2
-    return false
-  end
-  for i in 0...arr.length-1
-    for j in i+1...arr.length
-      if arr[i]+arr[j] == number
-        return true
-      end
+  return false if arr.length < 2
+
+  (0...arr.length - 1).each do |i|
+    (i + 1...arr.length).each do |j|
+      return true if arr[i] + arr[j] == number
     end
   end
-  return false
+  false
 end
 
 # Part 2
 
 def hello(name)
-  return 'Hello, ' + name
+  "Hello, #{name}"
 end
 
 def starts_with_consonant?(string)
@@ -45,11 +42,11 @@ def binary_multiple_of_4?(string)
   if string.match?(/\A[01]+\z/)
     if string == '0'
       return true
-    elsif string.length > 1 and string.end_with?('00')
+    elsif (string.length > 1) && string.end_with?('00')
       return true
     end
   end
-  return false
+  false
 end
 
 # Part 3
