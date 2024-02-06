@@ -18,7 +18,17 @@ def max_2_sum(arr)
 end
 
 def sum_to_n?(arr, number)
-  # YOUR CODE HERE
+  if arr.length < 2
+    return false
+  end
+  for i in 0...arr.length-1
+    for j in i+1...arr.length
+      if arr[i]+arr[j] == number
+        return true
+      end
+    end
+  end
+  return false
 end
 
 # Part 2
