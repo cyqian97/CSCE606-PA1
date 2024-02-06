@@ -38,11 +38,18 @@ def hello(name)
 end
 
 def starts_with_consonant?(string)
-  !!(string =~ /\A[bcdfghjklmnpqrstvwxyz]/i)
+  string.match?(/^[bcdfghjklmnpqrstvwxyz]/i)
 end
 
 def binary_multiple_of_4?(string)
-  # YOUR CODE HERE
+  if string.match?(/\A[01]+\z/)
+    if string == '0'
+      return true
+    elsif string.length > 1 and string.end_with?('00')
+      return true
+    end
+  end
+  return false
 end
 
 # Part 3
